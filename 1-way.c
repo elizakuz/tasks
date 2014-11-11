@@ -1,20 +1,26 @@
+/* float: a - знак
+	  b - экспонента
+	  c - мантисса
+	Kuzmina Elizaveta  */
+
 #include <stdio.h>
 
 int main()
 {
 	int* p;
-	float val;
-	scanf("%e", &val);
-	unsigned int ival, a, b, c;
+	float val, val1, val2;
+	scanf("%e", &val1);
+	scanf("%e", &val2);
+	val = val1 / val2;
+	int ival, a, b, c;
 	ival = *((int *)((void *) &val));
 	a = ival;
-	a >>= 31;
+	a = a & 0x10000000;
 	b = ival;
-	b <<= 1;
-	b >>= 24;
+	b = b & 0x7F800000;
+	b >>= 23;
 	c = ival;
-	c <<= 9;
-	c >>= 9;
+	c = c & 0x7FFFFF;
 	printf("%d\n",a);
 	printf("%d\n",b);
 	printf("%d\n",c);
@@ -25,17 +31,17 @@ int main()
 	}
 	else
 	{
-		b = b - 127;
 		if (b == 255 & c == 0)
 		{
-			printf("беск.");
+			printf("беск.\n");
 		}
 		else if (b == 255 & c != 0)
 		{
-			printf("Not a Number");
+			printf("Not a Number\n");
 		}
 		else 
 		{
+			b = b - 127;
 			if ( a == 1 ) printf("-");
 			printf("1.%d",c);
 			printf("* 2^%d\n",b);
