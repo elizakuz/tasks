@@ -1,7 +1,14 @@
+/* float: a - знак
+	  b - экспонента
+	  c - мантисса
+	Kuzmina Elizaveta  */
+
 #include <stdio.h>
 
 int main(){
 	unsigned int a, b, c;
+	float fval1;
+	float fval2;
 	struct{
 		int type;
 		union {
@@ -9,15 +16,16 @@ int main(){
 			float fval;
 		} val;
 	} data;
-	scanf("%f", &data.val.fval);
+	scanf("%f", &fval1);
+	scanf("%f", &fval2);
+	data.val.fval = fval1 / fval2;
 	a = data.val.ival;
-	a >>= 31;
+	a = a & 0x80000000;
 	b = data.val.ival;
-	b <<= 1;
-	b >>= 24;
+	b = b & 0x7f800000;
+	b >>= 23;
 	c = data.val.ival;
-	c <<= 9;
-	c >>= 9;
+	c = c & 0x7fffff;
 	printf("%d\n",a);
 	printf("%d\n",b);
 	printf("%d\n",c);
@@ -28,17 +36,17 @@ int main(){
 	}
 	else
 	{
-		b = b - 127;
 		if (b == 255 & c == 0)
 		{
-			printf("беск.");
+			printf("беск.\n");
 		}
 		else if (b == 255 & c != 0)
 		{
-			printf("Not a Number");
+			printf("Not a Number\n");
 		}
 		else 
 		{
+			b = b - 127;
 			if ( a == 1 ) printf("-");
 			printf("1.%d",c);
 			printf("* 2^%d\n",b);
