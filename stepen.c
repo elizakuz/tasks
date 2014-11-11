@@ -1,3 +1,5 @@
+/* возведение в степень
+	Kuzmina Elizaveta */
 #include <stdio.h>
 
 int main(){
