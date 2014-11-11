@@ -1,3 +1,6 @@
+/* поиск подстроки в строке
+	Kuzmina Elizaveta */
+
 #include <stdio.h>
 #include <string.h>
 
