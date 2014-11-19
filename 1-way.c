@@ -53,6 +53,7 @@ int main()
 			if ( a == 1 ) printf("-");
 			printf("%f",r + 1);
 			printf("* 2^%d\n",b);
+			//Привет, Лизок! ;)
 		}
 	}
 }
