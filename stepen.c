@@ -6,7 +6,9 @@ int main(){
 	int a;
 	int n;
 	int r = 1;
+	printf("Введите основание\n");
 	scanf("%d",&a);
+	printf("Введите показатель\n");
 	scanf("%d",&n);
 	while (n)
 	{
@@ -17,5 +19,5 @@ int main(){
 		a = a * a;
 		n >>= 1;
 	}
-	printf("%d\n", r);
+	printf("Ответ: %d\n", r);
 }

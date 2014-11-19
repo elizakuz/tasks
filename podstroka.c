@@ -7,7 +7,9 @@
 int main(){
 	char s[100];
 	char p[100];
+	printf("Введите строку\n");
 	gets (s);
+	printf("Введите подстроку\n");
 	gets (p);
 	int n1 = strlen(s);
 	int n2 = strlen(p);
@@ -33,5 +35,5 @@ int main(){
 			r++;
 		}
 	}
-	printf("%d\n", r);
+	printf("Ответ: %d\n", r);
 }
