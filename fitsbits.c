@@ -11,7 +11,8 @@ int main(){
 	int k;
 	scanf("%d", &k);	
         n_p = n & ~(n >> 31);
-	n_m = ~(n - 1) & (n >> 31);
-	n = (n_p | n_m) >> (k - 1);
+	n_m = (~(n - 1) - 1) & (n >> 31);
+        printf ("%d %d\n", n_p, n_m);
+	n = (n_p >> (k - 1)) | (n_m >> (k-1));
 	printf("%d\n", !n);
 }
