@@ -9,9 +9,10 @@ int main()
 	scanf("%d", &n);
 	int i;
 	int k;
-	for (i = 1; i <= 32; i++)
+	const b = sizeof(int)*8;
+	for (i = 1; i <= b; i++)
 	{
-		k = (n >> (32 - i)) & 1;
+		k = (n >> (b - i)) & 1;
 		printf("%d", k);
 	}
 	printf("\n");
