@@ -1,3 +1,5 @@
+/* simple calculator
+	Kuzmina Elizaveta */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,7 +48,8 @@ void clear(){
 int main(){
 	char s;
 	int n;
-	scanf("%s", &s);
+	int x = 0;
+	scanf("%c", &s);
 	while(s != 'q'){
 		switch(s) {
 			case '0'...'9': n = s - '0';
@@ -88,14 +91,20 @@ int main(){
 					printf("wrong expression\n");
 				}
 				break;
-			case '=': printf("Answer: "); 
-				print();
-				clear();
+			case '=': if(x){
+					printf("no such command");
+				} else {
+					printf("Answer: "); 
+					print();
+					clear();
+				}
 				break;
 			case 'q': break;
-			default: printf("no such command\n");
+			case '\n': break;
+			case ' ': break;
+			default: x = 1;
 				break;
 		}
-		scanf("%s", &s);
+		scanf("%c", &s);
 	}	
 }
