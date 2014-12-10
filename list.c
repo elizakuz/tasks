@@ -1,4 +1,4 @@
-/* односвязный список
+/* Singly linked list
 	Kuzmina Elizaveta */
 
 #include <stdio.h>
@@ -34,7 +34,7 @@ void del(){
 	node_t * q;
 	for(p = hd; p && (p->v != n);q = p, p = p->next){}
 		if(p == NULL){
-			printf("no such simbol\n");
+			printf("no such symbol\n");
 		} else {
 			if (p == hd) {
 				hd = hd->next;
@@ -48,7 +48,6 @@ int main(){
 	char k;
 	scanf("%c", &k);
 	while(k != 'q'){
-		//if(k != ' '){
 			switch(k) {
 				case 'a': add();
 					break;
@@ -57,10 +56,11 @@ int main(){
 				case 'd': del();
 					break;
 				case 'q': break;
+				case '\n': break;
+				case ' ': break;
 				default: printf("no such command\n");
 					break;
 			}
-		//}
 		scanf("%c", &k);
 	}
 }
